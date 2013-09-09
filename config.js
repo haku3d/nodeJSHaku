@@ -1,8 +1,9 @@
  // Export configuration
 var express = require('express'),
 	engine = require('ejs-locals'),
-	mongo = require('mongoose');
-
+	mongo = require('mongoose'),
+	lessMiddleware = require('less-middleware');
+	
 module.exports = function(app){
 		
 	app.requireAuth = false;
@@ -17,6 +18,17 @@ module.exports = function(app){
 	
 	//generic config
 	app.configure(function(){
+	
+		//Less Middleware
+		app.use(lessMiddleware({
+			src: __dirname + 'bootstrap.less',
+			prefix: '/stylesheets/less/',
+			debug: true,
+			compress: true,
+			force: true
+		}));
+
+		app.use(express.static(__dirname + '/public'));
 		
 		app.use(express.cookieParser('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'));
 		app.use(express.session({
