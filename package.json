@@ -1,9 +1,7 @@
 {
   "name": "localhost",
   "subdomain": "localhost",
-  "domains": [
-    "localhost",
-  ],
+  "domains": "localhost",
   "scripts": {
     "start": "filter.js"
   },
