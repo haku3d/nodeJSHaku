@@ -1,1 +1,0 @@
-# Templates`ejs` layouts form partial html for pages.

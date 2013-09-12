@@ -1,1 +1,0 @@
-SETX SITEROOT %~dp0 %*
